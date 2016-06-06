@@ -33,9 +33,12 @@ app.use(bodyparser.json());
 app.use('/', routes);
 
 // creation du serveur et mise en marche
-var server = app.listen(port, host, function() {
+var server = app.listen(port, host, function (req, res) {
   	console.log("\nServer listening at http://%s:%s".green, host, port);
   	console.log("...");
+  	
+  	res.writeHead(200, { 'Content-Type': 'text/plain' });
+  	res.end('Hello from azure\n');
 })
 
 // export de l'application
