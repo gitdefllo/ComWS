@@ -29,7 +29,7 @@ def authenticate(username, password, grant_type, client_id):
     print(response.text + "\n")
 
     # si le serveur repond {'success'='true'}
-    if response.status_code == 200 and response.json()['success'] == True:
+    if response.status_code == 200:
         # appel du fichier externe 'weather.py'
         weather.init("Lyon", "France")
 
